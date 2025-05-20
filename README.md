@@ -2,8 +2,6 @@
 Python client for [ForestMQ](https://github.com/josefdigital/forestmq)
 
 
-## 🚧 Work in progress, please call back soon...
-
 ### Install
 ```
 pip install forestmq
