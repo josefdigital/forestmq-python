@@ -5,8 +5,6 @@ name = "pypi"
 
 [packages]
 httpx = "*"
-setuptools = "*"
-sphinx-autodoc-typehints = "*"
 
 [dev-packages]
 sphinx = "*"
@@ -15,6 +13,9 @@ pylint = "*"
 pytest = "*"
 build = "*"
 twine = "*"
+sphinx-autodoc-typehints = "*"
+setuptools = "*"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.13"

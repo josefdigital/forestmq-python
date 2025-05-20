@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "48435138cd4be75a0d0360aece669c59649682c65090438ef9eca2d32aa58f8a"
+            "sha256": "a9b6dacef4338e7fb0aa7a519dfbaf191d4ec468d375d61fce75d36f043d1919"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -936,6 +936,15 @@
             "markers": "python_version >= '3.11'",
             "version": "==8.2.3"
         },
+        "sphinx-rtd-theme": {
+            "hashes": [
+                "sha256:422ccc750c3a3a311de4ae327e82affdaf59eb695ba4936538552f3b00f4ee13",
+                "sha256:b7457bc25dda723b20b086a670b9953c859eab60a2a03ee8eb2bb23e176e5f85"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==3.0.2"
+        },
         "sphinxcontrib-applehelp": {
             "hashes": [
                 "sha256:2f29ef331735ce958efa4734873f084941970894c6090408b079c61b2e1c06d1",
@@ -959,6 +968,14 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==2.1.0"
+        },
+        "sphinxcontrib-jquery": {
+            "hashes": [
+                "sha256:1620739f04e36a2c779f1a131a2dfd49b2fd07351bf1968ced074365933abc7a",
+                "sha256:f936030d7d0147dd026a4f2b5a57343d233f1fc7b363f68b3d4f1cb0993878ae"
+            ],
+            "markers": "python_version >= '2.7'",
+            "version": "==4.1"
         },
         "sphinxcontrib-jsmath": {
             "hashes": [
