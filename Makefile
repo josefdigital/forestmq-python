@@ -16,5 +16,8 @@ tox:
 	pipenv run tox
 
 release:
-	python setup.py sdist
-	twine upload dist/* --verbose
+	pipenv run python -m build
+	pipenv run python -m twine upload dist/* --verbose
+
+docker_compose_run:
+	docker compose -f docker-compose.yaml up
