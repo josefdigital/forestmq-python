@@ -2,6 +2,7 @@
 
 Python client for [ForestMQ](https://github.com/josefdigital/forestmq)
 
+[Read The Docs](https://forestmq-python.readthedocs.io/en/latest/)
 
 ### Install
 ```
