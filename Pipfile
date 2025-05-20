@@ -16,6 +16,7 @@ twine = "*"
 sphinx-autodoc-typehints = "*"
 setuptools = "*"
 sphinx-rtd-theme = "*"
+pytest-asyncio = "*"
 
 [requires]
 python_version = "3.13"
