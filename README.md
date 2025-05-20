@@ -1,4 +1,5 @@
-![ForestMQ](assets/fmq_logo.png)
+# ForestMQ Python
+
 Python client for [ForestMQ](https://github.com/josefdigital/forestmq)
 
 
