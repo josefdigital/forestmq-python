@@ -1,0 +1,6 @@
+services:
+  forestmq:
+    restart: always
+    image: "josefdigital/forestmq:0.6.2"
+    ports:
+      - "8005:8005"

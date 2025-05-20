@@ -6,12 +6,15 @@ name = "pypi"
 [packages]
 httpx = "*"
 setuptools = "*"
+sphinx-autodoc-typehints = "*"
 
 [dev-packages]
 sphinx = "*"
 tox = "*"
 pylint = "*"
 pytest = "*"
+build = "*"
+twine = "*"
 
 [requires]
 python_version = "3.13"

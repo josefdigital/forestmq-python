@@ -1,5 +1,5 @@
 ![ForestMQ](assets/fmq_logo.png)
-Python client for ForestMQ
+Python client for [ForestMQ](https://github.com/josefdigital/forestmq)
 
 
 ## 🚧 Work in progress, please call back soon...
@@ -9,8 +9,13 @@ Python client for ForestMQ
 pip install forestmq
 ```
 
+### Running ForestMQ
+```
+docker run -p 8005:8005 josefdigital/forestmq:0.6.2
+```
+
 ### Examples
-Using the provider
+#### Using the provider API
 ```python
 from forestmq import ForestMQ
 
@@ -39,3 +44,21 @@ async def async_example():
 
 asyncio.run(async_example())  # {'queue_length': 39, 'message_size': 5120, 'message': {'name': 'Async message!'}}
 ```
+#### Using the consumer API
+```python
+import asyncio
+
+from forestmq import ForestMQ
+
+
+def callback(message: dict) -> None:
+    print(f"Consumer message: {message['message']}")
+
+
+if __name__ == "__main__":
+    fmq = ForestMQ(domain="http://localhost:8005", interval=1)
+    asyncio.run(fmq.consumer.poll(callback))
+
+```
+
+
