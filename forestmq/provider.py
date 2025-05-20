@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Coroutine
 
 import httpx
 
@@ -73,12 +74,12 @@ class Provider:
         except httpx.RequestError as e:
             raise SessionError(f"FORESTMQ Error: Failed to send message in session") from e
 
-    async def send_msg(self, message: dict) -> str:
+    async def send_msg(self, message: dict) -> Coroutine:
         """
         Send a message asynchronously to the ForestMQ provider endpoint.
 
         :param message: A dictionary representing the message payload.
-        :return: JSON response from the server as a string.
+        :return: A coroutine that contains the JSON response from the server as a string.
         :raises SessionError: If the async HTTP request fails.
         """
         data = {
