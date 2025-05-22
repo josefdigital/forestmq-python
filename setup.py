@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='forestmq',
-    version='0.2.0',
+    version='0.2.1',
     description='Python client for ForestMQ',
     packages=["forestmq"],
     classifiers=[
