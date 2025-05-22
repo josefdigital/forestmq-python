@@ -16,6 +16,7 @@ docker run -p 8005:8005 josefdigital/forestmq:0.6.2
 
 ### Examples
 #### Using the provider API
+
 ```python
 from forestmq import ForestMQ
 
@@ -57,8 +58,24 @@ def callback(message: dict) -> None:
 
 if __name__ == "__main__":
     fmq = ForestMQ(domain="http://localhost:8005", interval=1)
-    asyncio.run(fmq.consumer.poll(callback))
+    asyncio.run(fmq.consumer.poll_sync(callback))
 
 ```
 
+Async consumer example
+```python
+import asyncio
+
+from forestmq import ForestMQ
+
+
+async def callback(message: dict) -> None:
+    await asyncio.sleep(1)
+    print(f"Consumer message: {message['message']}")
+
+
+if __name__ == "__main__":
+    fmq = ForestMQ(domain="http://localhost:8005", interval=1)
+    asyncio.run(fmq.consumer.poll(callback))
+```
 
