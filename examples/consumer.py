@@ -3,7 +3,8 @@ import asyncio
 from forestmq import ForestMQ
 
 
-def callback(message: dict) -> None:
+async def callback(message: dict) -> None:
+    await asyncio.sleep(1)
     print(f"Consumer message: {message['message']}")
 
 

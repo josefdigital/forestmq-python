@@ -1,5 +1,5 @@
 import asyncio
-from typing import Callable
+from typing import Callable, Coroutine
 
 import httpx
 
@@ -48,7 +48,7 @@ class Consumer:
         """
         return {"Content-Type": "application/json"}
 
-    async def poll(self, callback: Callable[[dict], None]) -> None:
+    async def poll_sync(self, callback: Callable[[dict], None]):
         """
         Begin polling the ForestMQ server and invoke the callback with each message.
 
@@ -73,6 +73,36 @@ class Consumer:
                 message = await self._fetch()
                 if "error" not in message:
                     callback(message)
+            except httpx.RequestError as e:
+                raise ConsumerError() from e
+            await asyncio.sleep(self.interval)
+
+    async def poll(self, callback: Callable[[dict], Coroutine]):
+        """
+        Begin polling the ForestMQ server and asynchronously invoke the callback with each message.
+
+        Example usage:
+
+            import asyncio
+            from forestmq import ForestMQ
+
+            async def callback(message: dict) -> None:
+                await asyncio.sleep(1)
+                print(f"Consumer message: {message['message']}")
+
+            if __name__ == "__main__":
+                fmq = ForestMQ(domain="http://localhost:8005", interval=1)
+                asyncio.run(fmq.consumer.poll(callback))
+
+        :param callback: An async function that takes a `dict` message and returns a coroutine.
+        :raises ConsumerError: If the HTTP request fails.
+        """
+        logger.info(f"[ForestMQ Consumer]: Starting polling to {self._get_url()}")
+        while True:
+            try:
+                message = await self._fetch()
+                if "error" not in message:
+                    await callback(message)
             except httpx.RequestError as e:
                 raise ConsumerError() from e
             await asyncio.sleep(self.interval)
